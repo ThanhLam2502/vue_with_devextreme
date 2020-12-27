@@ -16,12 +16,14 @@ export default {
   name: 'App',
   components: {
     'app-sidebar': SideBar,
-    // 'app-content': Properties,
   },
 };
 </script>
 
 <style lang="scss">
+body{
+  margin: 0;
+}
 #app {
   font-family: 'Open Sans', sans-serif;
 }
