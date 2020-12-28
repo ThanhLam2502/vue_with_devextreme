@@ -1,6 +1,6 @@
 <template>
   <div class="property">
-    <property-header/>
+    <property-header @createProperty="addProperty"/>
     <div class="table">
       <DxDataGrid id="dataGrid-home"
                   :data-source="properties"
@@ -16,7 +16,7 @@
         <DxColumn
           :width="44"
           cell-template="cellOptionTemplate"/>
-        <DxColumn data-field="Photo"
+        <DxColumn data-field="photo"
                   :allowFiltering="false"
                   :allowSearch="false"
                   :width="236" alignment="left"
@@ -24,12 +24,12 @@
         <DxColumn data-field="propertyID"
                   :allowFiltering="true"
                   :width="236" alignment="left"/>
-        <DxColumn data-field="Country" :width="236" alignment="left"/>
-        <DxColumn data-field="City" :width="236" alignment="left"/>
-        <DxColumn data-field="Location" :width="236" alignment="left"/>
-        <DxColumn data-field="Project Name" :width="236" alignment="left"/>
-        <DxColumn data-field="Developer Name" :width="236" alignment="left"/>
-        <DxColumn data-field="Property Type" :width="236" alignment="left"/>
+        <DxColumn data-field="country" :width="236" alignment="left"/>
+        <DxColumn data-field="city" :width="236" alignment="left"/>
+        <DxColumn data-field="location" :width="236" alignment="left"/>
+        <DxColumn data-field="projectName" :width="236" alignment="left"/>
+        <DxColumn data-field="developerName" :width="236" alignment="left"/>
+        <DxColumn data-field="propertyType" :width="236" alignment="left"/>
 
         <template #cellOptionTemplate>
           <font-awesome-icon icon="ellipsis-v"/>
@@ -45,12 +45,13 @@
 
 <script>
 import {
-  DxColumn,
-  DxDataGrid,
-  DxFilterRow,
-  DxSelection,
+  DxColumn, DxDataGrid, DxFilterRow, DxSelection,
 } from 'devextreme-vue/data-grid';
-import PropertyHeader from '@/components/PropertyHeader.vue';
+// import { mapGetters } from 'vuex';
+// import store from '../store';
+import notify from 'devextreme/ui/notify';
+import PropertyHeader from '../components/PropertyHeader.vue';
+// import FETCH_PROPERTIES from '../store/actions.type';
 
 export default {
   name: 'Home',
@@ -61,145 +62,150 @@ export default {
     DxSelection,
     PropertyHeader,
   },
+  // mounted() {
+  //   store.dispatch(FETCH_PROPERTIES);
+  // },
   data() {
     return {
       properties: [
         {
           check: true,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 1,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: true,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 2,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 3,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 4,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 5,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 6,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 7,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 8,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 9,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 10,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 11,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
         {
           check: false,
-          Photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
+          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
           propertyID: 12,
-          Country: 'Thailand',
-          City: 'Bangkok',
-          Location: 'Wattana',
-          'Project Name': 'Noble Ploenchit.',
-          'Developer Name': 'Sansiri',
-          'Property Type': 'Apartment',
+          country: 'Thailand',
+          city: 'Bangkok',
+          location: 'Wattana',
+          projectName: 'Noble Ploenchit.',
+          developerName: 'Sansiri',
+          propertyType: 'Apartment',
         },
       ],
+      propertiesCount: 2136,
     };
   },
   computed: {
+    // ...mapGetters(['properties']),
     selectedRow() {
       return this.properties.reduce((rs, property) => {
         if (property.check === true) {
@@ -209,28 +215,41 @@ export default {
       }, []);
     },
   },
+  methods: {
+    addProperty(e) {
+      console.log(e);
+      notify({
+        message: 'You have submitted the form',
+        width: 250,
+        position: {
+          my: 'right top',
+          at: 'right top',
+        },
+      }, 'success', 3000);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.property {
-  margin-left: 215px;
-  padding-left: 67px;
-  background-color: #fafafa;
+  .property {
+    margin-left: 215px;
+    padding-left: 67px;
+    background-color: #fafafa;
 
-  .table {
-    > #dataGrid-home {
-      img {
-        width: 82px;
-        height: 56px;
-        display: block;
-      }
+    .table {
+      > #dataGrid-home {
+        img {
+          width: 82px;
+          height: 56px;
+          display: block;
+        }
 
-      ::v-deep .dx-row > td {
-        vertical-align: middle;
+        ::v-deep .dx-row > td {
+          vertical-align: middle;
+        }
       }
     }
   }
-}
 </style>
 <!--cssClass="property-cell"-->
