@@ -47,11 +47,11 @@
 import {
   DxColumn, DxDataGrid, DxFilterRow, DxSelection,
 } from 'devextreme-vue/data-grid';
-// import { mapGetters } from 'vuex';
-// import store from '../store';
+import { mapGetters } from 'vuex';
 import notify from 'devextreme/ui/notify';
+import store from '../store';
 import PropertyHeader from '../components/PropertyHeader.vue';
-// import FETCH_PROPERTIES from '../store/actions.type';
+import FETCH_PROPERTIES from '../store/actions.type';
 
 export default {
   name: 'Home',
@@ -62,150 +62,11 @@ export default {
     DxSelection,
     PropertyHeader,
   },
-  // mounted() {
-  //   store.dispatch(FETCH_PROPERTIES);
-  // },
-  data() {
-    return {
-      properties: [
-        {
-          check: true,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 1,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: true,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 2,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 3,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 4,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 5,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 6,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 7,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 8,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 9,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 10,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 11,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-        {
-          check: false,
-          photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-          propertyID: 12,
-          country: 'Thailand',
-          city: 'Bangkok',
-          location: 'Wattana',
-          projectName: 'Noble Ploenchit.',
-          developerName: 'Sansiri',
-          propertyType: 'Apartment',
-        },
-      ],
-      propertiesCount: 2136,
-    };
+  mounted() {
+    store.dispatch(FETCH_PROPERTIES);
   },
   computed: {
-    // ...mapGetters(['properties']),
+    ...mapGetters(['properties']),
     selectedRow() {
       return this.properties.reduce((rs, property) => {
         if (property.check === true) {
@@ -217,7 +78,7 @@ export default {
   },
   methods: {
     addProperty(e) {
-      console.log(e);
+      this.properties.push(e);
       notify({
         message: 'You have submitted the form',
         width: 250,
