@@ -18,91 +18,126 @@
       :height="600">
       <div class="dx-fieldset">
         <div class="dx-fieldset-header">Add Property</div>
+        <DxValidationGroup :ref="groupRefKey">
+          <div class="dx-field">
+            <div class="dx-field-label">Photo</div>
+            <div class="dx-field-value">
+              <input type="file" accept="image/*" v-on:change="onChangeFileUpload">
+            </div>
+          </div>
 
-        <div class="dx-field">
-          <div class="dx-field-label">Photo</div>
-          <div class="dx-field-value">
-            <input type="file" accept="image/*" v-on:change="onChangeFileUpload">
+          <div class="dx-field">
+            <div class="dx-field-label">Property ID</div>
+            <div class="dx-field-value">
+              <DxTextBox
+                :show-clear-button="true"
+                :max-length="9"
+                v-model="property.propertyID"
+                placeholder="Enter property ID"
+              >
+                <DxValidator>
+                  <DxRequiredRule/>
+                  <DxPatternRule pattern="^P\d*$" message="Ex: P0000"/>
+                </DxValidator>
+              </DxTextBox>
+            </div>
           </div>
-        </div>
 
-        <div class="dx-field">
-          <div class="dx-field-label">Property ID</div>
-          <div class="dx-field-value">
-            <DxTextBox
-              :show-clear-button="true"
-              v-model="property.propertyID"
-              placeholder="Enter property ID"
-            />
+          <div class="dx-field">
+            <div class="dx-field-label">Country</div>
+            <div class="dx-field-value">
+              <DxSelectBox
+                id="show-checkboxes-mode"
+                :data-source="countries"
+                display-expr="name"
+                value-expr="name"
+                v-model="property.country"
+              >
+                <DxValidator>
+                  <DxRequiredRule/>
+                </DxValidator>
+              </DxSelectBox>
+            </div>
           </div>
-        </div>
 
-        <div class="dx-field">
-          <div class="dx-field-label">Country</div>
-          <div class="dx-field-value">
-            <DxTextBox
-              :show-clear-button="true"
-              v-model="property.country"
-              placeholder="Enter country"
-            />
+          <div class="dx-field">
+            <div class="dx-field-label">City</div>
+            <div class="dx-field-value">
+              <DxTextBox
+                :show-clear-button="true"
+                v-model="property.city"
+                placeholder="Enter city"
+              >
+                <DxValidator>
+                  <DxRequiredRule/>
+                </DxValidator>
+              </DxTextBox>
+            </div>
           </div>
-        </div>
-        <div class="dx-field">
-          <div class="dx-field-label">City</div>
-          <div class="dx-field-value">
-            <DxTextBox
-              :show-clear-button="true"
-              v-model="property.city"
-              placeholder="Enter city"
-            />
-          </div>
-        </div>
 
-        <div class="dx-field">
-          <div class="dx-field-label">Location</div>
-          <div class="dx-field-value">
-            <DxTextBox
-              :show-clear-button="true"
-              v-model="property.location"
-              placeholder="Enter location"
-            />
+          <div class="dx-field">
+            <div class="dx-field-label">Location</div>
+            <div class="dx-field-value">
+              <DxTextBox
+                :show-clear-button="true"
+                v-model="property.location"
+                placeholder="Enter location"
+              >
+                <DxValidator>
+                  <DxRequiredRule/>
+                </DxValidator>
+              </DxTextBox>
+            </div>
           </div>
-        </div>
 
-        <div class="dx-field">
-          <div class="dx-field-label">Project Name</div>
-          <div class="dx-field-value">
-            <DxTextBox
-              :show-clear-button="true"
-              v-model="property.projectName"
-              placeholder="Enter project name"
-            />
+          <div class="dx-field">
+            <div class="dx-field-label">Project Name</div>
+            <div class="dx-field-value">
+              <DxTextBox
+                :show-clear-button="true"
+                v-model="property.projectName"
+                placeholder="Enter project name"
+              >
+                <DxValidator>
+                  <DxRequiredRule/>
+                </DxValidator>
+              </DxTextBox>
+            </div>
           </div>
-        </div>
 
-        <div class="dx-field">
-          <div class="dx-field-label">Developer Name</div>
-          <div class="dx-field-value">
-            <DxTextBox
-              :show-clear-button="true"
-              v-model="property.developerName"
-              placeholder="Enter developer name"
-            />
+          <div class="dx-field">
+            <div class="dx-field-label">Developer Name</div>
+            <div class="dx-field-value">
+              <DxTextBox
+                :show-clear-button="true"
+                v-model="property.developerName"
+                placeholder="Enter developer name"
+              >
+                <DxValidator>
+                  <DxRequiredRule/>
+                </DxValidator>
+              </DxTextBox>
+            </div>
           </div>
-        </div>
 
-        <div class="dx-field">
-          <div class="dx-field-label">Property Type</div>
-          <div class="dx-field-value">
-            <DxTextBox
-              :show-clear-button="true"
-              v-model="property.propertyType"
-              placeholder="Enter property type"
-            />
+          <div class="dx-field">
+            <div class="dx-field-label">Property Type</div>
+            <div class="dx-field-value">
+              <DxTextBox
+                :show-clear-button="true"
+                v-model="property.propertyType"
+                placeholder="Enter property type"
+              >
+                <DxValidator>
+                  <DxRequiredRule/>
+                </DxValidator>
+              </DxTextBox>
+            </div>
           </div>
-        </div>
+        </DxValidationGroup>
       </div>
-      <DxButton text="Create" @click="createProject" />
+
+      <DxButton text="Create" @click="createProject"/>
     </DxPopup>
   </div>
 </template>
@@ -111,20 +146,55 @@
 import { DxPopup } from 'devextreme-vue/popup';
 import { DxTextBox } from 'devextreme-vue/text-box';
 import { DxButton } from 'devextreme-vue/button';
+import { DxPatternRule, DxRequiredRule, DxValidator } from 'devextreme-vue/validator';
+import { DxValidationGroup } from 'devextreme-vue/validation-group';
+import { DxSelectBox } from 'devextreme-vue/select-box';
 import Property from '../model/property';
+
+const groupRefKey = 'targetGroup';
 
 export default {
   name: 'PropertyHeader',
   components: {
+    DxSelectBox,
     DxPopup,
     DxTextBox,
     DxButton,
+    DxValidator,
+    DxRequiredRule,
+    DxPatternRule,
+    DxValidationGroup,
   },
+
   data() {
     return {
+      groupRefKey,
       isPopupVisible: false,
+      countries: [
+        {
+          id: 1,
+          name: 'ThaiLand',
+        },
+        {
+          id: 2,
+          name: 'Viet Nam',
+        },
+        {
+          id: 3,
+          name: 'Nu Nhi Quoc',
+        },
+        {
+          id: 4,
+          name: 'Thien Dang',
+        },
+      ],
       property: Property,
     };
+  },
+  computed: {
+    validationGroup() {
+      return this.$refs[this.groupRefKey].instance;
+    },
   },
   methods: {
     showAddPropertyPopup() {
@@ -134,6 +204,9 @@ export default {
       this.isPopupVisible = false;
     },
     createProject() {
+      const result = this.validationGroup.validate();
+      if (!result.isValid) return;
+
       this.$emit('createProperty', this.property);
       this.property = new Property();
       this.isPopupVisible = false;

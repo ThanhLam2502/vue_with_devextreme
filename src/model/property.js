@@ -1,7 +1,7 @@
 export default class PropertyModel {
   constructor(options = {}) {
     Object.assign(this, {
-      check: '',
+      check: false,
       photo: '',
       propertyID: '',
       country: '',
