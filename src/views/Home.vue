@@ -16,6 +16,7 @@
         <DxFilterRow
           :visible="true"
         />
+        <DxPaging :page-size="10"/>
         <DxSelection
           mode="multiple"
           showCheckBoxesMode="always"
@@ -26,7 +27,7 @@
         <DxColumn data-field="photo"
                   :allowFiltering="false"
                   :allowSearch="false"
-                  :width="236" alignment="left"
+                  :width="150" alignment="left"
                   cell-template="cellPhotoTemplate"
         />
         <DxColumn data-field="propertyID"
@@ -53,26 +54,28 @@
       </DxDataGrid>
     </div>
     <DxPopover
-      :width="300"
       :ref="popoverRefOption"
       position="right"
+      class="popover-property-menu"
     >
+      <DxPosition offset="170 -0"></DxPosition>
+
       <div class="icon">
         <div class="icon-item">
           <font-awesome-icon icon="eye"/>
-          <span>View</span>
+          <span class="icon-name">View</span>
         </div>
         <div class="icon-item">
           <font-awesome-icon icon="edit"/>
-          <span>Edit</span>
+          <span class="icon-name">Edit</span>
         </div>
         <div class="icon-item">
           <font-awesome-icon icon="copy"/>
-          <span>Duplicate</span>
+          <span class="icon-name">Duplicate</span>
         </div>
         <div class="icon-item">
           <font-awesome-icon icon="trash-alt"/>
-          <span>Delete</span>
+          <span class="icon-name">Delete</span>
         </div>
       </div>
     </DxPopover>
@@ -81,13 +84,9 @@
 
 <script>
 import {
-  DxColumn,
-  DxDataGrid,
-  DxFilterRow,
-  DxHeaderFilter,
-  DxSelection,
+  DxColumn, DxDataGrid, DxFilterRow, DxHeaderFilter, DxPaging, DxSelection,
 } from 'devextreme-vue/data-grid';
-import { DxPopover } from 'devextreme-vue/popover';
+import { DxPopover, DxPosition } from 'devextreme-vue/popover';
 import { mapGetters } from 'vuex';
 import notify from 'devextreme/ui/notify';
 import store from '../store';
@@ -105,6 +104,8 @@ export default {
     DxSelection,
     DxHeaderFilter,
     DxPopover,
+    DxPosition,
+    DxPaging,
     PropertyHeader,
   },
   mounted() {
@@ -151,61 +152,75 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .property {
-    margin-left: 215px;
-    padding-left: 67px;
-    background-color: #fafafa;
+.property {
+  margin-left: 215px;
+  padding-left: 67px;
+  background-color: #fafafa;
 
-    .table {
-      > #dataGrid-home {
-        td > img {
-          width: 82px;
-          height: 56px;
-          display: block;
-        }
+  .table {
+    > #dataGrid-home {
+      td > img {
+        width: 82px;
+        height: 56px;
+        display: block;
+      }
 
-        .icon-option {
-          padding: inherit;
-        }
+      .icon-option {
+        padding: inherit;
+        position: absolute;
+        z-index: 1502;
+        transform: translate(0px, -16px);
+      }
 
-        ::v-deep .dx-data-row > td {
-          vertical-align: middle;
-        }
+      ::v-deep .dx-data-row > td {
+        vertical-align: middle;
+      }
 
-        ::v-deep .dx-header-row {
-          > .dx-datagrid-action {
-            & .dx-sort-indicator {
-              color: #0091dc;
-            }
+      ::v-deep .dx-header-row {
+        > .dx-datagrid-action {
+          & .dx-sort-indicator {
+            color: #0091dc;
+          }
 
-            & .dx-column-indicators {
-              color: #0091dc;
-            }
+          & .dx-column-indicators {
+            color: #0091dc;
           }
         }
-
       }
+
     }
   }
+}
 
 </style>
 
 <style lang="scss">
+.popover-property-menu {
   .dx-overlay-content {
-    border-radius: 50px!important;
-    width: 350px!important;
-    height: 120px;
+    border-radius: 50px;
 
-    >.dx-popover-arrow {
+    > .dx-popover-arrow {
       visibility: hidden;
     }
-    >.dx-popup-content {
-      >.icon{
+
+    > .dx-popup-content {
+      padding: 8px 0;
+
+      > .icon {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        height: 100%;
+        padding-left: 32px;
+
+        .icon-item {
+          padding: 0 12px;
+
+          .icon-name {
+            padding: 0 6px;
+          }
+        }
       }
     }
   }
+}
 </style>
