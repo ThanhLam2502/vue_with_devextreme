@@ -1,0 +1,98 @@
+<div class="sidebar">
+  <div class="logo">
+    LOGO HERE
+  </div>
+  <nav class="nav">
+    <ul class="list">
+      <li
+              class="list-item"
+              :class="{selected: selectedId==='1'}"
+              @click="onClickSelect('1')"
+      >Dashboard
+      </li>
+      <li
+              class="list-item"
+              :class="{selected: selectedId==='2'}"
+              @click="onClickSelect('2')"
+      >Action Center
+      </li>
+      <li
+              class="list-item parent"
+              :class="{selected: selectedId==='3'}"
+              @click="onClickSelect('3')"
+              v-b-toggle.subMenu
+      >Lists
+      </li>
+      <ul class="list-sub">
+        <b-collapse id="subMenu">
+          <li
+                  class="list-sub-item"
+                  :class="{selected: selectedSubId==='3-1'}"
+                  @click="onClickSelectSub('3-1')"
+          >
+            <img src="../assets/images/Icon.svg">
+            <span class="sub-item-text">Properties</span>
+          </li>
+          <li
+                  class="list-sub-item"
+                  :class="{selected: selectedSubId==='3-2'}"
+                  @click="onClickSelectSub('3-2')"
+          >
+            <img src="../assets/images/Icon.svg">
+            <span class="sub-item-text">Projects</span>
+          </li>
+          <li
+                  class="list-sub-item"
+                  :class="{selected: selectedSubId==='3-3'}"
+                  @click="onClickSelectSub('3-3')"
+          >
+            <img src="../assets/images/Icon.svg">
+            <span class="sub-item-text">People</span>
+          </li>
+          <li
+                  class="list-sub-item"
+                  :class="{selected: selectedSubId==='3-4'}"
+                  @click="onClickSelectSub('3-4')"
+          >
+            <img src="../assets/images/Icon.svg">
+            <span class="sub-item-text">Companies</span>
+          </li>
+        </b-collapse>
+      </ul>
+      <li
+              class="list-item"
+              :class="{selected: selectedId==='4'}"
+              @click="onClickSelect('4')"
+      >Global Developer Marketplace
+      </li>
+      <li
+              class="list-item"
+              :class="{selected: selectedId==='5'}"
+              @click="onClickSelect('5')"
+      >Marketing Hub
+      </li>
+      <li
+              class="list-item"
+              :class="{selected: selectedId==='6'}"
+              @click="onClickSelect('6')"
+      >Reports
+      </li>
+      <li
+              class="list-item"
+              :class="{selected: selectedId==='7'}"
+              @click="onClickSelect('7')"
+      >Settings
+      </li>
+      <li
+              class="list-item"
+              :class="{selected: selectedId==='8'}"
+              @click="onClickSelect('8')"
+      >Chat
+      </li>
+    </ul>
+  </nav>
+  <div class="user-preview">
+    <img :src="'https://imgur.com/I80W1Q0.png'" class="img-user-preview">
+    <div class="user-name">Roger Claeys</div>
+  </div>
+</div>

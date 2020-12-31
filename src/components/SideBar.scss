@@ -1,0 +1,121 @@
+.sidebar {
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 215px;
+  height: 100%;
+  color: #7A98B1;
+  box-shadow: -38px 1px 85px rgba(0, 0, 0, 0.2);
+  text-decoration: none solid rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(0deg, #2e3344 0%, #003c6e 100%);
+
+  .logo {
+    height: 22px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .nav {
+    margin-top: 74px;
+    font-weight: 600;
+    flex: 1;
+
+    .list {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+
+      @mixin active {
+        color: #ffffff;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-position: center center;
+        text-decoration: none solid rgba(255, 255, 255);
+      }
+
+      .list-item {
+        //width: 201px;
+        height: 50px;
+        padding: 0 0 0 30px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        &.parent {
+          outline: none;
+
+          &.not-collapsed {
+            margin-bottom: 0;
+          }
+        }
+
+        &.selected {
+          @include active;
+          background-image: linear-gradient(25deg, #0091dc 0%, #00e1f1 100%);
+        }
+
+        &:hover {
+          color: #ffffff;
+          cursor: pointer;
+          background-color: #093153;
+        }
+      }
+
+      .list-sub {
+        padding: 0;
+        margin-bottom: 12px;
+
+        .list-sub-item {
+          //width: 201px;
+          height: 50px;
+          padding: 0 0 0 26px;
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          &.selected {
+            @include active;
+            background-image: linear-gradient(90deg, #252936 0%, rgba(37, 41, 54, 0) 100%);
+          }
+
+          .sub-item-text {
+            padding-left: 6.8px;
+          }
+        }
+      }
+    }
+  }
+
+  .user-preview {
+    height: 75px;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #252936;
+    background-size: cover;
+    text-decoration: none solid rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .img-user-preview {
+      width: 45px;
+      height: 45px;
+      border-radius: 100px;
+    }
+
+    .user-name {
+      font-weight: bold;
+      padding: 0 24px;
+      color: #ffffff;
+      font-size: 14px;
+      text-decoration: none solid rgb(255, 255, 255);
+    }
+  }
+}

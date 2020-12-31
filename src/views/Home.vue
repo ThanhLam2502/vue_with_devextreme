@@ -1,90 +1,15 @@
-<template>
-  <div class="property">
-    <property-header @createProperty="addProperty"/>
-    <div class="table">
-      <DxDataGrid id="dataGrid-home"
-                  :data-source="properties"
-                  key-expr="propertyID"
-                  :showBorders="false"
-                  :showRowLines="false"
-                  :showColumnLines="false"
-                  :selected-row-keys="selectedRow"
-      >
-        <DxHeaderFilter
-          :visible="true"
-        />
-        <DxFilterRow
-          :visible="true"
-        />
-        <DxPaging :page-size="10"/>
-        <DxSelection
-          mode="multiple"
-          showCheckBoxesMode="always"
-        />
-        <DxColumn
-          :width="44"
-          cell-template="cellOptionTemplate"/>
-        <DxColumn data-field="photo"
-                  :allowFiltering="false"
-                  :allowSearch="false"
-                  :width="150" alignment="left"
-                  cell-template="cellPhotoTemplate"
-        />
-        <DxColumn data-field="propertyID"
-                  :allowFiltering="true"
-                  caption="ID"
-                  :width="236" alignment="left"
-        />
-        <DxColumn data-field="country" :width="236" alignment="left"/>
-        <DxColumn data-field="city" :width="236" alignment="left"/>
-        <DxColumn data-field="location" :width="236" alignment="left"/>
-        <DxColumn data-field="projectName" :width="236" alignment="left"/>
-        <DxColumn data-field="developerName" :width="236" alignment="left"/>
-        <DxColumn data-field="propertyType" :width="236" alignment="left"/>
-
-        <template #cellOptionTemplate>
-          <div class="icon-option" @click.stop="clickOnShow">
-            <font-awesome-icon icon="ellipsis-v"/>
-          </div>
-        </template>
-
-        <template #cellPhotoTemplate="{ data }">
-          <img :src="data.value">
-        </template>
-      </DxDataGrid>
-    </div>
-    <DxPopover
-      :ref="popoverRefOption"
-      position="right"
-      class="popover-property-menu"
-    >
-      <DxPosition offset="170 -0"></DxPosition>
-
-      <div class="icon">
-        <div class="icon-item">
-          <font-awesome-icon icon="eye"/>
-          <span class="icon-name">View</span>
-        </div>
-        <div class="icon-item">
-          <font-awesome-icon icon="edit"/>
-          <span class="icon-name">Edit</span>
-        </div>
-        <div class="icon-item">
-          <font-awesome-icon icon="copy"/>
-          <span class="icon-name">Duplicate</span>
-        </div>
-        <div class="icon-item">
-          <font-awesome-icon icon="trash-alt"/>
-          <span class="icon-name">Delete</span>
-        </div>
-      </div>
-    </DxPopover>
-  </div>
+<template src="./Home.html">
 </template>
 
 <script>
 import {
-  DxColumn, DxDataGrid, DxFilterRow, DxHeaderFilter, DxPaging, DxSelection,
+  DxColumn,
+  DxColumnChooser,
+  DxDataGrid,
+  DxFilterRow,
+  DxHeaderFilter,
+  DxPaging,
+  DxSelection,
 } from 'devextreme-vue/data-grid';
 import { DxPopover, DxPosition } from 'devextreme-vue/popover';
 import { mapGetters } from 'vuex';
@@ -106,6 +31,7 @@ export default {
     DxPopover,
     DxPosition,
     DxPaging,
+    DxColumnChooser,
     PropertyHeader,
   },
   mounted() {
@@ -113,7 +39,23 @@ export default {
   },
   data() {
     return {
+      property: {},
+      selectedRowIndex: -1,
       popoverRefOption,
+      animationConfig: {
+        show: {
+          type: 'slide',
+          duration: 500,
+          from: {
+            left: 330,
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+
+        },
+      },
     };
   },
   computed: {
@@ -122,6 +64,7 @@ export default {
       return this.$refs[popoverRefOption].instance;
     },
     selectedRow() {
+      // Object key select
       return this.properties.reduce((rs, property) => {
         if (property.check === true) {
           return [...rs, property.propertyID];
@@ -142,85 +85,26 @@ export default {
         },
       }, 'success', 3000);
     },
-    clickOnShow(e) {
-      if (this.popover) {
+
+    clickOnShow(e, rowInfo) {
+      // check duplicate click
+      if (this.selectedRowIndex === rowInfo.rowIndex) {
+        this.popover.hide();
+        // set default flag
+        this.selectedRowIndex = -1;
+      } else {
         this.popover.show(e.currentTarget);
+        // save data row click
+        this.property = rowInfo.data;
+        // save flag
+        this.selectedRowIndex = rowInfo.rowIndex;
       }
     },
+
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.property {
-  margin-left: 215px;
-  padding-left: 67px;
-  background-color: #fafafa;
-
-  .table {
-    > #dataGrid-home {
-      td > img {
-        width: 82px;
-        height: 56px;
-        display: block;
-      }
-
-      .icon-option {
-        padding: inherit;
-        position: absolute;
-        z-index: 1502;
-        transform: translate(0px, -16px);
-      }
-
-      ::v-deep .dx-data-row > td {
-        vertical-align: middle;
-      }
-
-      ::v-deep .dx-header-row {
-        > .dx-datagrid-action {
-          & .dx-sort-indicator {
-            color: #0091dc;
-          }
-
-          & .dx-column-indicators {
-            color: #0091dc;
-          }
-        }
-      }
-
-    }
-  }
-}
-
-</style>
-
-<style lang="scss">
-.popover-property-menu {
-  .dx-overlay-content {
-    border-radius: 50px;
-
-    > .dx-popover-arrow {
-      visibility: hidden;
-    }
-
-    > .dx-popup-content {
-      padding: 8px 0;
-
-      > .icon {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding-left: 32px;
-
-        .icon-item {
-          padding: 0 12px;
-
-          .icon-name {
-            padding: 0 6px;
-          }
-        }
-      }
-    }
-  }
-}
+  @import './Home.scss';
 </style>

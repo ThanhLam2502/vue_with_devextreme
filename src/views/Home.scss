@@ -1,0 +1,53 @@
+.property {
+  margin-left: 215px;
+  padding-left: 67px;
+  background-color: #fafafa;
+
+  .table {
+    > #dataGrid-home {
+      td > img {
+        width: 82px;
+        height: 56px;
+        display: block;
+      }
+
+      .icon-option {
+        padding: inherit;
+        position: absolute;
+        z-index: 1502;
+        transform: translate(0px, -16px);
+      }
+
+      ::v-deep .dx-selection > td {
+        background-color: transparent;
+        border: none;
+      }
+
+      ::v-deep .dx-data-row > td {
+        vertical-align: middle;
+      }
+
+      ::v-deep .dx-header-row {
+        &>.dx-datagrid-action {
+          //style title collumn
+          color: #0091dc;
+          font-weight: 600;
+
+          //fill icon
+          .dx-column-indicators {
+            //fill arrow
+            &>.dx-sort:not(.dx-sort-none){
+              color: #0091dc;
+            }
+
+            // fill icon fillter
+            &>.dx-header-filter:not(.dx-header-filter-empty){
+              color: #0091dc;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

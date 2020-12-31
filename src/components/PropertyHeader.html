@@ -1,0 +1,142 @@
+<div class="header">
+  <div class="property-title">
+    Properties
+    <span class="property-total">2,136 Total</span>
+  </div>
+  <button class="property-add-btn" @click="showAddPropertyPopup">
+    <img src="../assets/images/add_icon.svg" alt="">
+    <span class="btn-add-text">Add Property</span>
+  </button>
+
+  <DxPopup
+          :visible="isPopupVisible"
+          v-on:hidden="onHiddenBtnClicked()"
+          :drag-enabled="false"
+          :close-on-outside-click="true"
+          :width="700"
+          :height="600"
+          class="popup-property-content">
+    <div class="dx-fieldset">
+      <div class="dx-fieldset-header">Add Property</div>
+      <DxValidationGroup :ref="groupRefKey" class="popup-property-content">
+        <div class="dx-field">
+          <div class="dx-field-label">Photo</div>
+          <div class="dx-field-value">
+            <input type="file" accept="image/*" v-on:change="onChangeFileUpload">
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Property ID</div>
+          <div class="dx-field-value">
+            <DxTextBox
+                    :show-clear-button="true"
+                    :max-length="9"
+                    v-model="property.propertyID"
+                    placeholder="Enter property ID"
+            >
+              <DxValidator>
+                <DxRequiredRule/>
+                <DxPatternRule pattern="^P\d*$" message="Ex: P0000"/>
+              </DxValidator>
+            </DxTextBox>
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Country</div>
+          <div class="dx-field-value">
+            <DxSelectBox
+                    id="show-checkboxes-mode"
+                    :data-source="countries"
+                    display-expr="name"
+                    value-expr="name"
+                    v-model="property.country"
+            >
+              <DxValidator>
+                <DxRequiredRule/>
+              </DxValidator>
+            </DxSelectBox>
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">City</div>
+          <div class="dx-field-value">
+            <DxTextBox
+                    :show-clear-button="true"
+                    v-model="property.city"
+                    placeholder="Enter city"
+            >
+              <DxValidator>
+                <DxRequiredRule/>
+              </DxValidator>
+            </DxTextBox>
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Location</div>
+          <div class="dx-field-value">
+            <DxTextBox
+                    :show-clear-button="true"
+                    v-model="property.location"
+                    placeholder="Enter location"
+            >
+              <DxValidator>
+                <DxRequiredRule/>
+              </DxValidator>
+            </DxTextBox>
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Project Name</div>
+          <div class="dx-field-value">
+            <DxTextBox
+                    :show-clear-button="true"
+                    v-model="property.projectName"
+                    placeholder="Enter project name"
+            >
+              <DxValidator>
+                <DxRequiredRule/>
+              </DxValidator>
+            </DxTextBox>
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Developer Name</div>
+          <div class="dx-field-value">
+            <DxTextBox
+                    :show-clear-button="true"
+                    v-model="property.developerName"
+                    placeholder="Enter developer name"
+            >
+              <DxValidator>
+                <DxRequiredRule/>
+              </DxValidator>
+            </DxTextBox>
+          </div>
+        </div>
+
+        <div class="dx-field">
+          <div class="dx-field-label">Property Type</div>
+          <div class="dx-field-value">
+            <DxTextBox
+                    :show-clear-button="true"
+                    v-model="property.propertyType"
+                    placeholder="Enter property type"
+            >
+              <DxValidator>
+                <DxRequiredRule/>
+              </DxValidator>
+            </DxTextBox>
+          </div>
+        </div>
+      </DxValidationGroup>
+    </div>
+
+    <DxButton text="Create" @click="createProject"/>
+  </DxPopup>
+</div>
