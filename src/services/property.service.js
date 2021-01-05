@@ -1,7 +1,15 @@
-import fakeProperties from '../data/property.mock';
+import ApiService from './api.service';
 
-export default class PropertyService {
-  static getProperties() {
-    return fakeProperties(60);
-  }
-}
+const PropertyService = {
+
+  async get() {
+    return ApiService.get();
+  },
+
+  async post(data) {
+    return ApiService.post(data);
+  },
+
+};
+
+export default PropertyService;

@@ -4,7 +4,7 @@
     <span class="property-total">2,136 Total</span>
   </div>
   <button class="property-add-btn" @click="showAddPropertyPopup">
-    <img src="../assets/images/add_icon.svg" alt="">
+    <img src="../../assets/images/add_icon.svg" alt="">
     <span class="btn-add-text">Add Property</span>
   </button>
 
@@ -16,6 +16,14 @@
           :width="700"
           :height="600"
           class="popup-property-content">
+
+    <div class="dx-fieldset">
+      <div class="dx-field">
+        <img :src="propertyTemp.photo"
+             alt="photo" class="photo">
+      </div>
+    </div>
+
     <div class="dx-fieldset">
       <div class="dx-fieldset-header">Add Property</div>
       <DxValidationGroup :ref="groupRefKey" class="popup-property-content">
@@ -23,23 +31,6 @@
           <div class="dx-field-label">Photo</div>
           <div class="dx-field-value">
             <input type="file" accept="image/*" v-on:change="onChangeFileUpload">
-          </div>
-        </div>
-
-        <div class="dx-field">
-          <div class="dx-field-label">Property ID</div>
-          <div class="dx-field-value">
-            <DxTextBox
-                    :show-clear-button="true"
-                    :max-length="9"
-                    v-model="property.propertyID"
-                    placeholder="Enter property ID"
-            >
-              <DxValidator>
-                <DxRequiredRule/>
-                <DxPatternRule pattern="^P\d*$" message="Ex: P0000"/>
-              </DxValidator>
-            </DxTextBox>
           </div>
         </div>
 

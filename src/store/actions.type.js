@@ -1,2 +1,2 @@
-const FETCH_PROPERTIES = 'fetchProperties';
-export default FETCH_PROPERTIES;
+export const FETCH_PROPERTIES = 'fetchProperties';
+export const ADD_PROPERTY = 'addProperty';

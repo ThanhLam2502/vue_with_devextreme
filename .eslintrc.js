@@ -5,8 +5,8 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'plugin:vue/essential',
-    // 'plugin:vue/vue3-essential',
+    // 'plugin:vue/essential',
+    'plugin:vue/vue3-essential',
     '@vue/airbnb',
   ],
   parserOptions: {

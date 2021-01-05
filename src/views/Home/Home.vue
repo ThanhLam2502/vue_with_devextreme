@@ -14,9 +14,9 @@ import {
 import { DxPopover, DxPosition } from 'devextreme-vue/popover';
 import { mapGetters } from 'vuex';
 import notify from 'devextreme/ui/notify';
-import store from '../store';
-import PropertyHeader from '../components/PropertyHeader.vue';
-import FETCH_PROPERTIES from '../store/actions.type';
+import store from '@/store';
+import PropertyHeader from '@/components/Header/PropertyHeader.vue';
+import { FETCH_PROPERTIES, ADD_PROPERTY } from '@/store/actions.type';
 
 const popoverRefOption = 'some-ref-name';
 
@@ -64,7 +64,7 @@ export default {
       return this.$refs[popoverRefOption].instance;
     },
     selectedRow() {
-      // Object key select
+      // Array key select
       return this.properties.reduce((rs, property) => {
         if (property.check === true) {
           return [...rs, property.propertyID];
@@ -74,7 +74,8 @@ export default {
     },
   },
   methods: {
-    addProperty(e) {
+    async addProperty(e) {
+      e.propertyID = await store.dispatch(ADD_PROPERTY, e);
       this.properties.push(e);
       notify({
         message: 'You have submitted the form',
@@ -106,5 +107,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import './Home.scss';
+  @import 'Home';
 </style>

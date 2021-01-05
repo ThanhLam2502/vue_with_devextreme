@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "es2015",
+    "module": "esnext",
+    "checkJs": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "paths": {
+      "@/models/*": [
+        "models/*"
+      ],
+      "@/enums/*": [
+        "enums/*"
+      ],
+      "@/constants/*": [
+        "constants/*"
+      ],
+      "@/utilities/*": [
+        "utilities/*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/views/*": [
+        "views/*"
+      ],
+      "@/store/*": [
+        "store/*"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

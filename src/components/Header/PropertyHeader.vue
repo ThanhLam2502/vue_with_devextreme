@@ -8,7 +8,8 @@ import { DxButton } from 'devextreme-vue/button';
 import { DxPatternRule, DxRequiredRule, DxValidator } from 'devextreme-vue/validator';
 import { DxValidationGroup } from 'devextreme-vue/validation-group';
 import { DxSelectBox } from 'devextreme-vue/select-box';
-import Property from '../model/property';
+import countries from '@/constants/Country';
+import Property from '@/model/property';
 
 const groupRefKey = 'targetGroup';
 
@@ -24,35 +25,31 @@ export default {
     DxPatternRule,
     DxValidationGroup,
   },
-
+  props: {
+    property: {
+      type: Property,
+      default: () => new Property(),
+    },
+  },
   data() {
     return {
       groupRefKey,
       isPopupVisible: false,
-      countries: [
-        {
-          id: 1,
-          name: 'ThaiLand',
-        },
-        {
-          id: 2,
-          name: 'Viet Nam',
-        },
-        {
-          id: 3,
-          name: 'Nu Nhi Quoc',
-        },
-        {
-          id: 4,
-          name: 'Thien Dang',
-        },
-      ],
-      property: Property,
+      countries,
     };
   },
   computed: {
     validationGroup() {
       return this.$refs[this.groupRefKey].instance;
+    },
+
+    propertyTemp: {
+      get() {
+        return this.property;
+      },
+      set(value) {
+        Object.assign(this.property, value);
+      },
     },
   },
   methods: {
@@ -67,7 +64,6 @@ export default {
       if (!result.isValid) return;
 
       this.$emit('createProperty', this.property);
-      this.property = new Property();
       this.isPopupVisible = false;
     },
     onChangeFileUpload(event) {
@@ -79,10 +75,20 @@ export default {
         const reader = new FileReader();
         reader.onload = (e) => {
           const base64Img = e.target.result;
-          this.property.photo = base64Img;
+
+          this.propertyTemp = new Property({
+            ...this.property,
+            photo: base64Img,
+          });
+
+          this.$emit('setImageUrl', base64Img);
+          console.log(base64Img);
         };
         reader.readAsDataURL(input);
       }
+    },
+    setImageUrl(e) {
+      console.log(e);
     },
   },
 };
