@@ -75,8 +75,11 @@ export default {
   },
   methods: {
     async addProperty(e) {
+      // call api
       e.propertyID = await store.dispatch(ADD_PROPERTY, e);
+      // push data
       this.properties.push(e);
+      // show message
       notify({
         message: 'You have submitted the form',
         width: 250,

@@ -1,4 +1,4 @@
-import SET_PROPERTY from './mutations.type';
+import { SET_PROPERTY } from './mutations.type';
 import { FETCH_PROPERTIES, ADD_PROPERTY } from './actions.type';
 import PropertyService from '../services/property.service';
 

@@ -34,22 +34,14 @@ export default {
   data() {
     return {
       groupRefKey,
-      isPopupVisible: false,
       countries,
+      imgBase64: '',
+      isPopupVisible: false,
     };
   },
   computed: {
     validationGroup() {
       return this.$refs[this.groupRefKey].instance;
-    },
-
-    propertyTemp: {
-      get() {
-        return this.property;
-      },
-      set(value) {
-        Object.assign(this.property, value);
-      },
     },
   },
   methods: {
@@ -63,7 +55,7 @@ export default {
       const result = this.validationGroup.validate();
       if (!result.isValid) return;
 
-      this.$emit('createProperty', this.property);
+      this.$emit('createProperty', { ...this.property, photo: this.imgBase64 });
       this.isPopupVisible = false;
     },
     onChangeFileUpload(event) {
@@ -75,20 +67,10 @@ export default {
         const reader = new FileReader();
         reader.onload = (e) => {
           const base64Img = e.target.result;
-
-          this.propertyTemp = new Property({
-            ...this.property,
-            photo: base64Img,
-          });
-
-          this.$emit('setImageUrl', base64Img);
-          console.log(base64Img);
+          this.imgBase64 = base64Img;
         };
         reader.readAsDataURL(input);
       }
-    },
-    setImageUrl(e) {
-      console.log(e);
     },
   },
 };

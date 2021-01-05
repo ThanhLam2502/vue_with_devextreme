@@ -1,2 +1,4 @@
-const SET_PROPERTY = 'setProperty';
-export default SET_PROPERTY;
+export const SET_PROPERTY = 'setProperty';
+export const SET_AUTH = 'setUser';
+export const PURGE_AUTH = 'logOut';
+export const SET_ERROR = 'setError';
