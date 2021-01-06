@@ -77,5 +77,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
- @import "./PropertyHeader.scss";
+ @import "PropertyHeader";
 </style>

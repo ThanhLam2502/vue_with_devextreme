@@ -1,0 +1,31 @@
+<div class="container sign-up">
+  <div class="title">
+    <h2>SIGN UP</h2>
+  </div>
+  <div class="form-signup">
+    <form @submit.prevent="onSubmit">
+      <label><b>Username</b></label>
+      <input class="form-control form-input" placeholder="Enter a username"
+                required/>
+
+      <label><b>Password </b></label>
+      <input class="form-control form-input" type="password" placeholder="Enter Password" required/>
+
+      <div class="requirement">
+        <div>Password requirements:</div>
+        <div class="pwd-requirements">
+          <p class="req-item">At least 8 characters long</p>
+          <p class="req-item">At least 1 lower-case letter [a-z]</p>
+          <p class="req-item">At least 1 upper-case letter [A-Z]</p>
+          <p class="req-item">At least 1 digit [0-9]</p>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-create-account mt-2">CREATE ACCOUNT</button>
+
+      <div class="d-flex justify-content-end">
+        <router-link to="/login">Have an account?</router-link>
+      </div>
+    </form>
+  </div>
+</div>

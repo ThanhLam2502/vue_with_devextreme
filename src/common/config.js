@@ -1,2 +1,2 @@
-export const API_URL = 'tao_lao.api';
+export const API_URL = 'http://localhost:3000';
 export default API_URL;

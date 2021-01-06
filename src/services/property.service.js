@@ -1,13 +1,16 @@
 import ApiService from './api.service';
 
 const PropertyService = {
-
-  async get() {
-    return ApiService.get();
+  query(params) {
+    return ApiService.query('properties', { params });
   },
 
-  async post(data) {
-    return ApiService.post(data);
+  get(propertySlug) {
+    return ApiService.get('properties', propertySlug);
+  },
+
+  post(data) {
+    return ApiService.post('properties', data);
   },
 
 };

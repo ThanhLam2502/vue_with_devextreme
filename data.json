@@ -1,0 +1,570 @@
+{
+  "user":
+  [
+    {
+      "id": 1,
+      "userName": "thanhlam",
+      "password": "11111111",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTI5Nzc1LCJ1c2VybmFtZSI6Ii0tLVRMLS0tIiwiZXhwIjoxNjE1MDkwNDI2fQ.tsMlw47eHVdsvq6EFyK9mSXdBKxXAI0lFMY4ljHUeSs"
+    },
+    {
+      "id": 2,
+      "userName": "lamlamlam",
+      "password": "11111111",
+      "token": "eyJ1eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTI5Nzc1LCJ1c2VybmFtZSI6Ii0tLVRMLS0tIiwiZXhwIjoxNjE1MDkwNDI2fQ.tsMlw47eHVdsvq6EFyK9mSXdBKxXAI0lFMY4ljHUeSs"
+    }
+  ],
+  "properties":
+  [
+    {
+      "id": 1,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Dominican Republic",
+      "city": "Lake Jameyside",
+      "location": "Buckridge Valleys",
+      "projectName": "Small Granite Chair",
+      "developerName": "Jermey_Blick",
+      "propertyType": "Strategist"
+    },
+    {
+      "id": 2,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Serbia",
+      "city": "Metzborough",
+      "location": "Percy Alley",
+      "projectName": "Handcrafted Concrete Car",
+      "developerName": "Tatyana_Hammes94",
+      "propertyType": "Planner"
+    },
+    {
+      "id": 3,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Serbia",
+      "city": "West Sydnishire",
+      "location": "Bins Rue",
+      "projectName": "Refined Metal Hat",
+      "developerName": "Davonte_Cremin",
+      "propertyType": "Associate"
+    },
+    {
+      "id": 4,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Cuba",
+      "city": "Nicholeshire",
+      "location": "Urban Route",
+      "projectName": "Gorgeous Frozen Soap",
+      "developerName": "Veronica.Walker",
+      "propertyType": "Engineer"
+    },
+    {
+      "id": 5,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Argentina",
+      "city": "Dedrickfurt",
+      "location": "Justice Glen",
+      "projectName": "Licensed Soft Mouse",
+      "developerName": "Dennis.Schmeler45",
+      "propertyType": "Facilitator"
+    },
+    {
+      "id": 6,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Trinidad and Tobago",
+      "city": "East Louvenia",
+      "location": "Goodwin Stravenue",
+      "projectName": "Rustic Granite Keyboard",
+      "developerName": "Keaton.Huel5",
+      "propertyType": "Associate"
+    },
+    {
+      "id": 7,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Holy See (Vatican City State)",
+      "city": "New Letitiaport",
+      "location": "Milton Glens",
+      "projectName": "Refined Fresh Table",
+      "developerName": "Meghan87",
+      "propertyType": "Agent"
+    },
+    {
+      "id": 8,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Morocco",
+      "city": "Lake Harrison",
+      "location": "Bernita Run",
+      "projectName": "Fantastic Granite Bacon",
+      "developerName": "Astrid87",
+      "propertyType": "Assistant"
+    },
+    {
+      "id": 9,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Isle of Man",
+      "city": "West Leolaberg",
+      "location": "Louie Burgs",
+      "projectName": "Incredible Frozen Salad",
+      "developerName": "Juanita26",
+      "propertyType": "Representative"
+    },
+    {
+      "id": 10,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Mali",
+      "city": "East Nick",
+      "location": "Carson Path",
+      "projectName": "Practical Soft Keyboard",
+      "developerName": "Kiana.Dare",
+      "propertyType": "Supervisor"
+    },
+    {
+      "id": 11,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Turks and Caicos Islands",
+      "city": "Port Garrickmouth",
+      "location": "Champlin Cliff",
+      "projectName": "Incredible Wooden Shoes",
+      "developerName": "Santos_Hahn",
+      "propertyType": "Liaison"
+    },
+    {
+      "id": 12,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Morocco",
+      "city": "Lake Donnaborough",
+      "location": "Monahan Stravenue",
+      "projectName": "Rustic Frozen Sausages",
+      "developerName": "Edmond_Rolfson",
+      "propertyType": "Producer"
+    },
+    {
+      "id": 13,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Austria",
+      "city": "West Lempiberg",
+      "location": "Marion Flat",
+      "projectName": "Practical Concrete Soap",
+      "developerName": "Lydia_Gulgowski",
+      "propertyType": "Engineer"
+    },
+    {
+      "id": 14,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Western Sahara",
+      "city": "Averystad",
+      "location": "Volkman Pike",
+      "projectName": "Awesome Concrete Salad",
+      "developerName": "Murphy.Ondricka6",
+      "propertyType": "Assistant"
+    },
+    {
+      "id": 15,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Saint Kitts and Nevis",
+      "city": "DuBuquemouth",
+      "location": "Bartell Points",
+      "projectName": "Gorgeous Metal Table",
+      "developerName": "Rafael.Hessel66",
+      "propertyType": "Facilitator"
+    },
+    {
+      "id": 16,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Pitcairn Islands",
+      "city": "South Salvatore",
+      "location": "Eliseo Falls",
+      "projectName": "Generic Wooden Cheese",
+      "developerName": "Dina.Roob84",
+      "propertyType": "Orchestrator"
+    },
+    {
+      "id": 17,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Morocco",
+      "city": "Olaville",
+      "location": "Wisozk Union",
+      "projectName": "Handmade Granite Cheese",
+      "developerName": "Modesto_Johnston40",
+      "propertyType": "Architect"
+    },
+    {
+      "id": 18,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Botswana",
+      "city": "Kleinfort",
+      "location": "Schneider Green",
+      "projectName": "Practical Granite Ball",
+      "developerName": "Julianne.Rodriguez25",
+      "propertyType": "Executive"
+    },
+    {
+      "id": 19,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Pakistan",
+      "city": "South Gilbert",
+      "location": "Hagenes Fork",
+      "projectName": "Small Wooden Chicken",
+      "developerName": "Barry.Mayert52",
+      "propertyType": "Producer"
+    },
+    {
+      "id": 20,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Bahamas",
+      "city": "Taylorstad",
+      "location": "Sigrid Roads",
+      "projectName": "Rustic Concrete Mouse",
+      "developerName": "Columbus88",
+      "propertyType": "Consultant"
+    },
+    {
+      "id": 21,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Australia",
+      "city": "Treutelshire",
+      "location": "Emie Way",
+      "projectName": "Generic Granite Chicken",
+      "developerName": "Lavina.Glover90",
+      "propertyType": "Strategist"
+    },
+    {
+      "id": 22,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Uganda",
+      "city": "West Katrinaside",
+      "location": "Rosenbaum Key",
+      "projectName": "Rustic Fresh Table",
+      "developerName": "Hallie.Weimann68",
+      "propertyType": "Manager"
+    },
+    {
+      "id": 23,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Taiwan",
+      "city": "Laylaland",
+      "location": "Nikki Tunnel",
+      "projectName": "Tasty Granite Pants",
+      "developerName": "Alexa35",
+      "propertyType": "Planner"
+    },
+    {
+      "id": 24,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "New Caledonia",
+      "city": "Ferryhaven",
+      "location": "Guy Islands",
+      "projectName": "Rustic Fresh Fish",
+      "developerName": "Kareem.Paucek",
+      "propertyType": "Strategist"
+    },
+    {
+      "id": 25,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Saint Helena",
+      "city": "Scotton",
+      "location": "Alysa Haven",
+      "projectName": "Rustic Cotton Chips",
+      "developerName": "Cassie_Herzog9",
+      "propertyType": "Architect"
+    },
+    {
+      "id": 26,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Luxembourg",
+      "city": "Luciousport",
+      "location": "McKenzie Turnpike",
+      "projectName": "Ergonomic Wooden Keyboard",
+      "developerName": "Trenton_Dickinson",
+      "propertyType": "Analyst"
+    },
+    {
+      "id": 27,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Belarus",
+      "city": "Gutmannfurt",
+      "location": "Gleichner Hill",
+      "projectName": "Practical Concrete Tuna",
+      "developerName": "Freddie.Schmitt",
+      "propertyType": "Architect"
+    },
+    {
+      "id": 28,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Myanmar",
+      "city": "Lake Adolphusbury",
+      "location": "Fahey Estates",
+      "projectName": "Handcrafted Soft Keyboard",
+      "developerName": "Reymundo_Kshlerin",
+      "propertyType": "Strategist"
+    },
+    {
+      "id": 29,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Togo",
+      "city": "Lake Ora",
+      "location": "Alexanne Springs",
+      "projectName": "Sleek Wooden Chicken",
+      "developerName": "Lempi71",
+      "propertyType": "Agent"
+    },
+    {
+      "id": 30,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Malawi",
+      "city": "Diegofurt",
+      "location": "Ansel Manors",
+      "projectName": "Handmade Fresh Chips",
+      "developerName": "Mckenzie_Marks31",
+      "propertyType": "Designer"
+    },
+    {
+      "id": 31,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "United Kingdom",
+      "city": "North Mozellmouth",
+      "location": "Windler Summit",
+      "projectName": "Gorgeous Metal Table",
+      "developerName": "Lillie.Waelchi4",
+      "propertyType": "Strategist"
+    },
+    {
+      "id": 32,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Bulgaria",
+      "city": "North Bryonview",
+      "location": "Treutel Estate",
+      "projectName": "Refined Metal Hat",
+      "developerName": "June_Graham13",
+      "propertyType": "Assistant"
+    },
+    {
+      "id": 33,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Timor-Leste",
+      "city": "Kerlukeberg",
+      "location": "Wilber Dale",
+      "projectName": "Practical Granite Hat",
+      "developerName": "Garrison_Schneider",
+      "propertyType": "Analyst"
+    },
+    {
+      "id": 34,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "United States Minor Outlying Islands",
+      "city": "North Juston",
+      "location": "Estevan Islands",
+      "projectName": "Small Cotton Shoes",
+      "developerName": "Cassie.Bednar92",
+      "propertyType": "Analyst"
+    },
+    {
+      "id": 35,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Ireland",
+      "city": "Wandaside",
+      "location": "Fatima Hollow",
+      "projectName": "Rustic Frozen Pizza",
+      "developerName": "Korey.Rempel",
+      "propertyType": "Representative"
+    },
+    {
+      "id": 36,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Malta",
+      "city": "Olsonton",
+      "location": "Hettinger Freeway",
+      "projectName": "Generic Wooden Keyboard",
+      "developerName": "Devan_Gislason99",
+      "propertyType": "Planner"
+    },
+    {
+      "id": 37,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Vietnam",
+      "city": "Timmyborough",
+      "location": "Christiansen Road",
+      "projectName": "Refined Frozen Pizza",
+      "developerName": "Keven59",
+      "propertyType": "Producer"
+    },
+    {
+      "id": 38,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Luxembourg",
+      "city": "Karleyhaven",
+      "location": "Franz Ways",
+      "projectName": "Handmade Frozen Bike",
+      "developerName": "Jailyn49",
+      "propertyType": "Designer"
+    },
+    {
+      "id": 39,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Democratic People's Republic of Korea",
+      "city": "Bartonberg",
+      "location": "Roob Views",
+      "projectName": "Awesome Wooden Gloves",
+      "developerName": "Mitchell.Rolfson83",
+      "propertyType": "Administrator"
+    },
+    {
+      "id": 40,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Iceland",
+      "city": "Jaclynside",
+      "location": "Bergstrom Courts",
+      "projectName": "Practical Cotton Pizza",
+      "developerName": "Odie27",
+      "propertyType": "Supervisor"
+    },
+    {
+      "id": 41,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Bahamas",
+      "city": "Gutkowskiburgh",
+      "location": "Trantow Mews",
+      "projectName": "Small Plastic Towels",
+      "developerName": "Gloria_Hoppe33",
+      "propertyType": "Coordinator"
+    },
+    {
+      "id": 42,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Ukraine",
+      "city": "Johnsburgh",
+      "location": "Lehner Valley",
+      "projectName": "Handcrafted Rubber Chicken",
+      "developerName": "Raymundo_Ryan7",
+      "propertyType": "Representative"
+    },
+    {
+      "id": 43,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Kenya",
+      "city": "Lake Libbie",
+      "location": "Sheila Row",
+      "projectName": "Incredible Plastic Pizza",
+      "developerName": "Ezequiel49",
+      "propertyType": "Orchestrator"
+    },
+    {
+      "id": 44,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Ghana",
+      "city": "New Alphonsostad",
+      "location": "Libbie Squares",
+      "projectName": "Generic Wooden Bacon",
+      "developerName": "Justus87",
+      "propertyType": "Officer"
+    },
+    {
+      "id": 45,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Russian Federation",
+      "city": "Georgiannaborough",
+      "location": "George Hills",
+      "projectName": "Gorgeous Fresh Salad",
+      "developerName": "Jaunita_Champlin63",
+      "propertyType": "Representative"
+    },
+    {
+      "id": 46,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Republic of Korea",
+      "city": "Mittieburgh",
+      "location": "Ullrich Dam",
+      "projectName": "Intelligent Concrete Chair",
+      "developerName": "Damion.Anderson44",
+      "propertyType": "Facilitator"
+    },
+    {
+      "id": 47,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Namibia",
+      "city": "Johnstonland",
+      "location": "Adrianna Ramp",
+      "projectName": "Unbranded Fresh Pants",
+      "developerName": "Clement.Bayer",
+      "propertyType": "Specialist"
+    },
+    {
+      "id": 48,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Azerbaijan",
+      "city": "North Pierreborough",
+      "location": "Hirthe Station",
+      "projectName": "Fantastic Rubber Table",
+      "developerName": "Angelo27",
+      "propertyType": "Manager"
+    },
+    {
+      "id": 49,
+      "check": true,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Latvia",
+      "city": "West Leopold",
+      "location": "Schuster Canyon",
+      "projectName": "Generic Steel Mouse",
+      "developerName": "Kenya.Schuster",
+      "propertyType": "Representative"
+    },
+    {
+      "id": 50,
+      "check": false,
+      "photo": "http://placeimg.com/640/480",
+      "country": "Faroe Islands",
+      "city": "Jayceeview",
+      "location": "Jacobi Summit",
+      "projectName": "Generic Soft Gloves",
+      "developerName": "Darwin.Beatty95",
+      "propertyType": "Officer"
+    }
+  ]
+}

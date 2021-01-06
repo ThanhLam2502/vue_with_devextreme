@@ -1,13 +1,22 @@
-<div class="home">
-  dsadsaddsa
-  dasd
-  dá
-  dá
-  sd
-  ad
-  á
-  d
-  á
-  d
-  dsa
+<div class="login">
+  <div class="container sign-in">
+    <div class="title">
+      <h2>SIGN IN</h2>
+    </div>
+    <div class="form-signin">
+      <form @submit.prevent="onSubmit(email,password)">
+        <label><b>Email</b></label>
+        <input class="form-control form-input"
+               placeholder="Enter a valid e-mail address" required/>
+
+        <label><b>Password </b></label>
+        <input class="form-control form-input" type="password"
+               placeholder="Enter Password" required/>
+        <button type="submit" class="btn-create-account mt-2">LOGIN</button>
+        <div class="d-flex justify-content-end">
+          <router-link to="/register">Sign Up for free!</router-link>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

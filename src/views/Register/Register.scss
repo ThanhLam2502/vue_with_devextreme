@@ -1,4 +1,4 @@
-.sign-in {
+.sign-up {
   font-family: Raleway;
   padding: 40px;
   background-color: #f1f1f1;
@@ -10,7 +10,22 @@
     margin-bottom: 20px;
   }
 
-  .form-signin {
+  .requirement {
+
+    .pwd-requirements {
+      padding: 0 16px;
+      margin: 2px 16px 16px 16px;
+      border: 1px solid #d3d3d3;
+
+      .req-item {
+        line-height: 1em;
+        font-size: 90%;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  .form-signup {
     .form-input {
       margin: 4px 0 5px 0;
     }

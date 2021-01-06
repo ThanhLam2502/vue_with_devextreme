@@ -3,7 +3,7 @@ import { CHECK_AUTH, LOGIN, LOGOUT } from '@/store/actions.type';
 import { PURGE_AUTH, SET_AUTH, SET_ERROR } from '@/store/mutations.type';
 import ApiService from '@/services/api.service';
 
-const state = {
+const authState = {
   error: null,
   user: {},
   isAuthenticated: !!JwtService.getToken(),
@@ -71,7 +71,7 @@ const mutations = {
 };
 
 export default {
-  state,
+  state: authState,
   actions,
   getters,
   mutations,

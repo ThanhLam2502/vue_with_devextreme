@@ -1,61 +1,31 @@
-import Property from '../model/property';
+const faker = require('faker');
 
-function zeroPad(num, length) {
-  return num.toString().padStart(length, '0');
+function generateProperties(count = 50) {
+  const properties = [];
+  for (let idx = 0; idx < count; idx += 1) {
+    const check = faker.random.boolean();
+    const photo = faker.image.imageUrl();
+    const id = idx + 1;
+    const country = faker.address.country();
+    const city = faker.address.city();
+    const location = faker.address.streetName();
+    const projectName = faker.commerce.productName();
+    const developerName = faker.internet.userName();
+    const propertyType = faker.name.jobType();
+
+    properties.push({
+      check,
+      photo,
+      id,
+      country,
+      city,
+      location,
+      projectName,
+      developerName,
+      propertyType,
+    });
+  }
+  return { properties };
 }
 
-export function fkProperties01(count = 5) {
-  return new Array(count).fill({}).map((_, idx) => new Property({
-    check: idx % 5 === 1,
-    photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-    propertyID: `P${idx}`,
-    country: 'Thailand',
-    city: 'Bangkok',
-    location: 'Wattana',
-    projectName: 'Noble Ploenchit.',
-    developerName: 'Sansiri',
-    propertyType: 'Apartment',
-  }));
-}
-
-export function fkProperties02(count = 5) {
-  return Array.from({ length: count }, (v, i) => new Property({
-    check: i % 5 === 1,
-    photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-    propertyID: `P${zeroPad(i, 4)}`,
-    country: 'Thailand',
-    city: 'Bangkok',
-    location: 'Wattana',
-    projectName: 'Noble Ploenchit.',
-    developerName: 'Sansiri',
-    propertyType: 'Apartment',
-  }));
-}
-
-export function fkProperties03(count = 5) {
-  return [...new Array(count)].map((v, index) => new Property({
-    check: index % 5 === 1,
-    photo: 'https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg',
-    propertyID: `P${index}`,
-    country: 'Thailand',
-    city: 'Bangkok',
-    location: 'Wattana',
-    projectName: 'Noble Ploenchit.',
-    developerName: 'Sansiri',
-    propertyType: 'Apartment',
-  }));
-}
-
-export function getNewId() {
-  const arr = fkProperties02(10);
-  const maxID = arr.reduce((max, v, idx) => (max > idx ? max : idx), -1);
-  return `P${zeroPad(maxID, 4)}`;
-}
-
-export function getUserInfo() {
-  return {
-    userName: 'sss',
-    email: 'ddd@gmail.com',
-    token: 'ddddd',
-  };
-}
+module.exports = generateProperties;

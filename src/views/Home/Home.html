@@ -1,87 +1,10 @@
-<div class="property">
-  <property-header @createProperty="addProperty"/>
-  <div class="table">
-    <DxDataGrid id="dataGrid-home"
-                :data-source="properties"
-                key-expr="propertyID"
-                :showBorders="false"
-                :showRowLines="false"
-                :showColumnLines="false"
-                :selected-row-keys="selectedRow"
-    >
-      <DxColumnChooser
-              :enabled="true"
-              mode="dragAndDrop"
-      />
-      <DxHeaderFilter
-              :visible="true"
-      />
-      <DxFilterRow
-              :visible="true"
-      />
-      <DxPaging :page-size="10"/>
-      <DxSelection
-              mode="multiple"
-              showCheckBoxesMode="always"
-              :allow-select-all="false"
-      />
-      <DxColumn
-              :width="44"
-              cell-template="cellOptionTemplate"/>
-      <DxColumn data-field="photo"
-                :allowFiltering="false"
-                :allowSearch="false"
-                :width="150" alignment="left"
-                cell-template="cellPhotoTemplate"
-      />
-      <DxColumn data-field="propertyID"
-                :allowFiltering="true"
-                caption="ID"
-                :width="236" alignment="left"
-      />
-      <DxColumn data-field="country" :width="236" alignment="left"/>
-      <DxColumn data-field="city" :width="236" alignment="left"/>
-      <DxColumn data-field="location" :width="236" alignment="left"/>
-      <DxColumn data-field="projectName" :width="236" alignment="left"/>
-      <DxColumn data-field="developerName" :width="236" alignment="left"/>
-      <DxColumn data-field="propertyType" :width="236" alignment="left"/>
-
-      <template #cellOptionTemplate="{ data: rowInfo }">
-        <div class="icon-option" @click="clickOnShow($event, rowInfo)">
-          <font-awesome-icon icon="ellipsis-v"/>
-        </div>
-      </template>
-
-      <template #cellPhotoTemplate="{ data }">
-        <img :src="data.value">
-      </template>
-    </DxDataGrid>
-  </div>
-  <DxPopover
-          :ref="popoverRefOption"
-          :animation="animationConfig"
-          position="right"
-          class="popover-property-menu"
-  >
-    <DxPosition offset="170 -0"></DxPosition>
-
-    <div class="icon">
-      <div class="icon-item">
-        <font-awesome-icon icon="eye"/>
-        <span class="icon-name">View</span>
-      </div>
-      <div class="icon-item">
-        <font-awesome-icon icon="edit"/>
-        <span class="icon-name">Edit</span>
-      </div>
-      <div class="icon-item">
-        <font-awesome-icon icon="copy"/>
-        <span class="icon-name">Duplicate</span>
-      </div>
-      <div class="icon-item">
-        <font-awesome-icon icon="trash-alt"/>
-        <span class="icon-name">Delete</span>
-      </div>
+<div class="home">
+  <aside>
+    <app-sidebar/>
+  </aside>
+  <main>
+    <div class="content">
+      <router-view/>
     </div>
-  </DxPopover>
+  </main>
 </div>
