@@ -10,6 +10,7 @@ import { DxValidationGroup } from 'devextreme-vue/validation-group';
 import { DxSelectBox } from 'devextreme-vue/select-box';
 import countries from '@/constants/Country';
 import Property from '@/model/property';
+import { LOGOUT } from '@/store/actions.type';
 
 const groupRefKey = 'targetGroup';
 
@@ -71,6 +72,11 @@ export default {
         };
         reader.readAsDataURL(input);
       }
+    },
+    clickLogout() {
+      this.$store.dispatch(LOGOUT).then(() => {
+        this.$router.push({ name: 'login' });
+      });
     },
   },
 };

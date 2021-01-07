@@ -3,7 +3,7 @@ export default class PropertyModel {
     Object.assign(this, {
       check: false,
       photo: '',
-      propertyID: '',
+      id: '',
       country: '',
       city: '',
       location: '',

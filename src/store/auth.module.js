@@ -1,6 +1,6 @@
 import JwtService from '@/services/jwt.service';
 import {
-  CHECK_AUTH, LOGIN, LOGOUT, REGISTER,
+  LOGIN, LOGOUT, REGISTER,
 } from '@/store/actions.type';
 import { PURGE_AUTH, SET_AUTH, SET_ERROR } from '@/store/mutations.type';
 import ApiService from '@/services/api.service';
@@ -27,6 +27,7 @@ const actions = {
         .then(({ data }) => {
           const token = data.accessToken;
           const user = { ...credentials, token };
+          ApiService.setHeader();
           context.commit(SET_AUTH, user);
           resolve(user);
         })
@@ -40,9 +41,10 @@ const actions = {
       ApiService.post('users', credentials)
         .then(({ data }) => {
           const token = data.accessToken;
-          const user = { ...credentials, token };
-          context.commit(SET_AUTH, user);
-          resolve(user);
+          delete ApiService.setHeader();
+          // const user = { ...credentials, token };
+          // context.commit(SET_AUTH, user);
+          resolve(token);
         })
         .catch(({ response }) => {
           context.commit(SET_ERROR, response.data);
@@ -53,23 +55,6 @@ const actions = {
 
   [LOGOUT](context) {
     context.commit(PURGE_AUTH);
-  },
-
-  [CHECK_AUTH](context) {
-    if (JwtService.getToken()) {
-      ApiService.setHeader();
-      ApiService.get('users')
-        .then(({ data }) => {
-          console.log(data);
-          context.commit(SET_AUTH, data.user);
-        })
-        .catch(({ response }) => {
-          console.log(response);
-          context.commit(SET_ERROR, response.data.errors);
-        });
-    } else {
-      context.commit(PURGE_AUTH);
-    }
   },
 };
 

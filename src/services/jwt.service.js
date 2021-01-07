@@ -2,7 +2,7 @@ const ID_TOKEN_KEY = 'token';
 
 const JwtService = {
   getToken() {
-    window.localStorage.getItem(ID_TOKEN_KEY);
+    return window.localStorage.getItem(ID_TOKEN_KEY);
   },
 
   saveToken(token) {

@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '@/store/index';
+// import { CHECK_AUTH } from '@/store/actions.type';
 
 Vue.use(VueRouter);
 
@@ -22,6 +24,7 @@ const routes = [
         path: '',
         name: 'home',
         component: () => import('@/views/Home/Dashboard/Dashboard.vue'),
+        meta: { requiresAuth: true },
       },
     ],
   },
@@ -31,6 +34,23 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const { isAuthenticated } = store.getters;
+  console.log(isAuthenticated);
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!isAuthenticated) {
+      next({
+        path: '/login',
+        params: { nextUrl: to.fullPath },
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

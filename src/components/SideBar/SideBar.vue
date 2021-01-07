@@ -2,8 +2,6 @@
 </template>
 
 <script>
-import { CHECK_AUTH } from '../../store/actions.type';
-
 export default {
   name: 'SideBar',
   data() {
@@ -11,15 +9,6 @@ export default {
       selectedId: '1',
       selectedSubId: '',
     };
-  },
-  mounted() {
-    this.$store.dispatch(CHECK_AUTH)
-      .then(() => {
-        console.log('Oke');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   },
   methods: {
     onClickSelect(id) {
