@@ -4,14 +4,14 @@
       <h2>SIGN IN</h2>
     </div>
     <div class="form-signin">
-      <form @submit.prevent="onSubmit(email,password)">
-        <label><b>Email</b></label>
-        <input class="form-control form-input"
-               placeholder="Enter a valid e-mail address" required/>
+      <form @submit.prevent="onSubmit(email ,password)">
+        <label><b>Email: </b></label>
+        <input class="form-control form-input" type="email"
+               placeholder="Enter a valid e-mail address" v-model="email" required/>
 
         <label><b>Password </b></label>
         <input class="form-control form-input" type="password"
-               placeholder="Enter Password" required/>
+               placeholder="Enter Password" v-model="password" required/>
         <button type="submit" class="btn-create-account mt-2">LOGIN</button>
         <div class="d-flex justify-content-end">
           <router-link to="/register">Sign Up for free!</router-link>

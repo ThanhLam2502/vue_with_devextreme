@@ -2,8 +2,29 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import { LOGIN } from '../../store/actions.type';
+
 export default {
   name: 'Login',
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    onSubmit(email, password) {
+      this.$store
+        .dispatch(LOGIN, { email, password })
+        .then(() => this.$router.push({ name: 'home' }));
+    },
+  },
+  computed: {
+    ...mapState({
+      errors: (state) => state.auth.error,
+    }),
+  },
 };
 </script>
 

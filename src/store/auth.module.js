@@ -1,5 +1,7 @@
 import JwtService from '@/services/jwt.service';
-import { CHECK_AUTH, LOGIN, LOGOUT } from '@/store/actions.type';
+import {
+  CHECK_AUTH, LOGIN, LOGOUT, REGISTER,
+} from '@/store/actions.type';
 import { PURGE_AUTH, SET_AUTH, SET_ERROR } from '@/store/mutations.type';
 import ApiService from '@/services/api.service';
 
@@ -21,13 +23,30 @@ const getters = {
 const actions = {
   [LOGIN](context, credentials) {
     return new Promise((resolve) => {
-      ApiService.post('users/login', { user: credentials })
+      ApiService.post('login', credentials)
         .then(({ data }) => {
-          context.commit(SET_AUTH, data.user);
-          resolve(data);
+          const token = data.accessToken;
+          const user = { ...credentials, token };
+          context.commit(SET_AUTH, user);
+          resolve(user);
         })
         .catch(({ response }) => {
           context.commit(SET_ERROR, response.data.errors);
+        });
+    });
+  },
+  [REGISTER](context, credentials) {
+    return new Promise((resolve, reject) => {
+      ApiService.post('users', credentials)
+        .then(({ data }) => {
+          const token = data.accessToken;
+          const user = { ...credentials, token };
+          context.commit(SET_AUTH, user);
+          resolve(user);
+        })
+        .catch(({ response }) => {
+          context.commit(SET_ERROR, response.data);
+          reject(response);
         });
     });
   },
@@ -39,11 +58,13 @@ const actions = {
   [CHECK_AUTH](context) {
     if (JwtService.getToken()) {
       ApiService.setHeader();
-      ApiService.get('user')
+      ApiService.get('users')
         .then(({ data }) => {
+          console.log(data);
           context.commit(SET_AUTH, data.user);
         })
         .catch(({ response }) => {
+          console.log(response);
           context.commit(SET_ERROR, response.data.errors);
         });
     } else {

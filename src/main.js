@@ -6,6 +6,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import Vue from 'vue';
+import VueLodash from 'vue-lodash';
+import lodash from 'lodash';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import App from './App.vue';
 import router from './router';
@@ -15,6 +17,7 @@ import ApiService from './services/api.service';
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
+Vue.use(VueLodash, { name: 'custom', lodash });
 library.add(fab, fas, far);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

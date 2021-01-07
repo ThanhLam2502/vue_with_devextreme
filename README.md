@@ -1,6 +1,35 @@
 #Vue_with_devextreme
 
-##API:
+
+#json-server-auth:
+###Install both JSON Server and JSON Server Auth :
+```
+# NPM 
+npm install -D json-server json-server-auth
+# Yarn 
+yarn add -D json-server json-server-auth
+```
+Create a data.json file with a users collection :
+```
+{
+  "users": []
+}
+```
+###Start JSON serve
+```
+json-server db.json -m ./node_modules/json-server-auth
+# With cli
+json-server-auth data.json
+```
+
+###Router
+Any of the following routes registers a new user :
+```
+POST /register
+POST /signup
+POST /users
+```
+#json-server:
 ###Install JSON Server
 ```
 npm install -g json-server
@@ -54,4 +83,3 @@ json-server <name>.js
 json-server property.mock.js
 ```
 [Github source - JSON Server](https://github.com/typicode/json-server)
-

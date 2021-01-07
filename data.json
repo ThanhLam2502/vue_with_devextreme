@@ -1,21 +1,5 @@
 {
-  "user":
-  [
-    {
-      "id": 1,
-      "userName": "thanhlam",
-      "password": "11111111",
-      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTI5Nzc1LCJ1c2VybmFtZSI6Ii0tLVRMLS0tIiwiZXhwIjoxNjE1MDkwNDI2fQ.tsMlw47eHVdsvq6EFyK9mSXdBKxXAI0lFMY4ljHUeSs"
-    },
-    {
-      "id": 2,
-      "userName": "lamlamlam",
-      "password": "11111111",
-      "token": "eyJ1eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTI5Nzc1LCJ1c2VybmFtZSI6Ii0tLVRMLS0tIiwiZXhwIjoxNjE1MDkwNDI2fQ.tsMlw47eHVdsvq6EFyK9mSXdBKxXAI0lFMY4ljHUeSs"
-    }
-  ],
-  "properties":
-  [
+  "properties": [
     {
       "id": 1,
       "check": false,
@@ -565,6 +549,33 @@
       "projectName": "Generic Soft Gloves",
       "developerName": "Darwin.Beatty95",
       "propertyType": "Officer"
+    }
+  ],
+  "users": [
+    {
+      "email": "thanhlam@mail.com",
+      "password": "$2a$10$EH0PmJIVFUBvWlLVjY0/pOzvQH2CQ9P.fglfajY1IHyJZ8cTFFaH.",
+      "id": 1
+    },
+    {
+      "email": "thanhlam12@mail.com",
+      "password": "$2a$10$/lJtxCDLiDo6ggZPmVGbdOxjPq9EWCL8gUSAdvDYNqtRZVExn22AW",
+      "id": 2
+    },
+    {
+      "email": "thanhlam123@mail.com",
+      "password": "$2a$10$QVHI0j4vFx9IsxqwJ/bJ1uwDz33YViXNqYRZDSOHl/qbOe.ZTZGFO",
+      "id": 3
+    },
+    {
+      "email": "lamlam12@mailmail",
+      "password": "$2a$10$hkqno5TNP41zCBb29wPNX.KNt0NUOCEBHTaL0yEmJzeDs0veQOcae",
+      "id": 4
+    },
+    {
+      "email": "thanhlamlam@mail.com",
+      "password": "$2a$10$LKGQ/RvwKIvVpRC/ewvyd.5yhI/sUPMfbnSwlkgjCqbGodTyOi6L.",
+      "id": 5
     }
   ]
 }

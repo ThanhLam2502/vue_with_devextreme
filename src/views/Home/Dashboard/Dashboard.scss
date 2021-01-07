@@ -24,6 +24,9 @@
       ::v-deep .dx-data-row > td {
         vertical-align: middle;
       }
+      ::v-deep .dx-datagrid-headers .dx-datagrid-table .dx-row > td{
+        border-bottom: 0px;
+      }
 
       ::v-deep .dx-header-row {
         &>.dx-datagrid-action {
@@ -44,6 +47,7 @@
             }
           }
         }
+
       }
 
     }

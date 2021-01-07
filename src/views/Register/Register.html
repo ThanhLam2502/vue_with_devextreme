@@ -2,30 +2,43 @@
   <div class="title">
     <h2>SIGN UP</h2>
   </div>
-  <div class="form-signup">
-    <form @submit.prevent="onSubmit">
-      <label><b>Username</b></label>
-      <input class="form-control form-input" placeholder="Enter a username"
-                required/>
+  <form class="form-signup">
+      <label><b>Email</b></label>
+      <input class="form-control form-input" type="email"
+             placeholder="Enter a email" v-model="email" required/>
+      <p class="text-danger pl-1">{{ errors }}</p>
 
       <label><b>Password </b></label>
-      <input class="form-control form-input" type="password" placeholder="Enter Password" required/>
+      <input class="form-control form-input" type="password" autocomplete="on"
+             placeholder="Enter password" v-model="password" v-on:input="debounceInput()" required/>
 
       <div class="requirement">
         <div>Password requirements:</div>
         <div class="pwd-requirements">
-          <p class="req-item">At least 8 characters long</p>
-          <p class="req-item">At least 1 lower-case letter [a-z]</p>
-          <p class="req-item">At least 1 upper-case letter [A-Z]</p>
-          <p class="req-item">At least 1 digit [0-9]</p>
+          <p class="req-item" :class="{ correct: validate.isLong }">
+            <font-awesome-icon icon="check-circle" v-show="validate.isLong"/>
+            At least 8 characters long
+          </p>
+          <p class="req-item" :class="{ correct: validate.isLowerCase }">
+            <font-awesome-icon icon="check-circle" v-show="validate.isLowerCase"/>
+            At least 1 lower-case letter [a-z]
+          </p>
+          <p class="req-item" :class="{ correct: validate.isUpperCase }">
+            <font-awesome-icon icon="check-circle" v-show="validate.isUpperCase"/>
+            At least 1 upper-case letter [A-Z]
+          </p>
+          <p class="req-item" :class="{ correct: validate.isDigit }">
+            <font-awesome-icon icon="check-circle" v-show="validate.isDigit"/>
+            At least 1 digit [0-9]
+          </p>
         </div>
       </div>
 
-      <button type="submit" class="btn-create-account mt-2">CREATE ACCOUNT</button>
+      <button class="btn-create-account mt-2"
+              v-on:click.prevent="onSignUp()">CREATE ACCOUNT</button>
 
       <div class="d-flex justify-content-end">
         <router-link to="/login">Have an account?</router-link>
       </div>
-    </form>
-  </div>
+  </form>
 </div>
