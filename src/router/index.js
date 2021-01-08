@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index';
-// import { CHECK_AUTH } from '@/store/actions.type';
 
 Vue.use(VueRouter);
 
@@ -38,12 +37,10 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const { isAuthenticated } = store.getters;
-  console.log(isAuthenticated);
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!isAuthenticated) {
       next({
-        path: '/login',
-        params: { nextUrl: to.fullPath },
+        name: 'login',
       });
     } else {
       next();

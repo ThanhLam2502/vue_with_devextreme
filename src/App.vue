@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-      <router-view/>
+    <router-view/>
   </div>
 </template>
-
 <script>
+import Vue from 'vue';
+import { LOGOUT } from './store/actions.type';
+
 export default {
   name: 'App',
+  mounted() {
+    Vue.axios.interceptors
+      .response.use(undefined, (err) => new Promise(function checkTokenExpired(resolve, reject) {
+        if (err.status === 401) {
+          this.$store.dispatch(LOGOUT);
+        }
+        // throw err;
+        reject(err);
+      }));
+  },
 };
 </script>
 

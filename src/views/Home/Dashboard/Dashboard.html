@@ -9,6 +9,7 @@
                 :showRowLines="false"
                 :showColumnLines="false"
                 :selected-row-keys="selectedRow"
+                ref="propertyDataGrid"
     >
       <DxColumnChooser
               :enabled="true"
@@ -20,7 +21,9 @@
       <DxFilterRow
               :visible="true"
       />
-      <DxPaging :page-size="10"/>
+      <DxPaging :page-size="pageSize"
+                :page-index="pageIndex"
+      />
       <DxSelection
               mode="multiple"
               showCheckBoxesMode="always"

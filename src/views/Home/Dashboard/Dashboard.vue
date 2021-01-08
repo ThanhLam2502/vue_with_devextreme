@@ -20,6 +20,8 @@ import { FETCH_PROPERTIES, ADD_PROPERTY } from '@/store/actions.type';
 import PropertyHeader from '@/components/Header/PropertyHeader.vue';
 
 const popoverRefOption = 'some-ref-name';
+const myDataGrid = 'some-ref-name';
+
 export default {
   name: 'Dashboard',
   components: {
@@ -37,8 +39,8 @@ export default {
   mounted() {
     store.dispatch(FETCH_PROPERTIES, {
       filters: {
-        _page: 1,
-        _limit: 5,
+        _page: '',
+        _limit: '',
       },
     });
   },
@@ -47,6 +49,9 @@ export default {
       property: {},
       selectedRowIndex: -1,
       popoverRefOption,
+      myDataGrid,
+      pageSize: 10,
+      pageIndex: 0,
       animationConfig: {
         show: {
           type: 'slide',
@@ -68,6 +73,9 @@ export default {
     popover() {
       return this.$refs[popoverRefOption].instance;
     },
+    getTotalPageCount() {
+      return this.$refs[myDataGrid].instance.pageCount();
+    },
     selectedRow() {
       // Array key select
       return this.properties.reduce((rs, property) => {
@@ -83,7 +91,7 @@ export default {
       // call api
       e.id = await store.dispatch(ADD_PROPERTY, e);
       // push data
-      this.properties.unshift(e);
+      this.properties.push(e);
       // show message
       notify({
         message: 'You have submitted the form',
@@ -110,6 +118,14 @@ export default {
       }
     },
 
+    changePageSize(value) {
+      this.pageSize = value;
+    },
+
+    goToLastPage() {
+      const pageCount = this.getTotalPageCount();
+      this.pageIndex = pageCount - 1;
+    },
   },
 };
 </script>

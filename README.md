@@ -1,8 +1,9 @@
-#Vue_with_devextreme
+# Vue_with_devextreme
 
 
-#json-server-auth:
-###Install both JSON Server and JSON Server Auth :
+# json-server-auth:
+
+### Install both JSON Server and JSON Server Auth :
 ```
 # NPM 
 npm install -D json-server json-server-auth
@@ -15,30 +16,30 @@ Create a data.json file with a users collection :
   "users": []
 }
 ```
-###Start JSON serve
+### Start JSON serve
 ```
 json-server db.json -m ./node_modules/json-server-auth
 # With cli
 json-server-auth data.json
 ```
 
-###Router
+### Router
 Any of the following routes registers a new user :
 ```
 POST /register
 POST /signup
 POST /users
 ```
-#json-server:
-###Install JSON Server
+# json-server:
+### Install JSON Server
 ```
 npm install -g json-server
 ```
-###Start JSON Server
+### Start JSON Server
 ```
 json-server --watch data.json
 ```
-###Routes
+### Routes
 Properties API:
 ```
 GET    /properties
@@ -60,26 +61,28 @@ DELETE /properties/{id}
 > a Content-Type: application/json header to use the JSON in the request body. 
 >Otherwise it will return a 2XX status code, but without changes being made to the data.
 
-###Database
+### Database
 ```
 GET /db
 ```
-###Filter
+### Filter
 Use **.** to access deep properties
 ```
 GET /properties?id=1&id=2
 GET /user?userName=lamlamlam
 ```
-###Paginate
+### Paginate
 _10 items are returned by default_
 ```
 GET /properties?_page=1
 GET /properties?_page=1&_limit=5
 ```
 
-####Run serve mock
+#### Run serve mock
 json-server <name>.js
 ```
 json-server property.mock.js
 ```
 [Github source - JSON Server](https://github.com/typicode/json-server)
+
+[Github source - JSON Serve Auth](https://github.com/jeremyben/json-server-auth)

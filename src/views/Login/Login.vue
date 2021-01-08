@@ -3,7 +3,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { LOGIN } from '../../store/actions.type';
+import { LOGIN } from '@/store/actions.type';
 
 export default {
   name: 'Login',
@@ -14,9 +14,12 @@ export default {
     };
   },
   methods: {
-    onSubmit(email, password) {
+    onSubmit() {
       this.$store
-        .dispatch(LOGIN, { email, password })
+        .dispatch(LOGIN, {
+          email: this.email,
+          password: this.password,
+        })
         .then(() => this.$router.push({ name: 'home' }));
     },
   },

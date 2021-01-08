@@ -25,7 +25,6 @@ const actions = {
 
   async [ADD_PROPERTY](context, property) {
     const { data } = await PropertyService.post(property);
-    console.log(data);
     return data.id;
   },
 };

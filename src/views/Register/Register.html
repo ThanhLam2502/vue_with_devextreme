@@ -1,12 +1,13 @@
-<div class="container sign-up">
-  <div class="title">
-    <h2>SIGN UP</h2>
-  </div>
-  <form class="form-signup">
+<div class="register">
+  <div class="container sign-up">
+    <div class="title">
+      <h2>SIGN UP</h2>
+    </div>
+    <form class="form-signup">
       <label><b>Email</b></label>
       <input class="form-control form-input" type="email"
              placeholder="Enter a email" v-model="email" required/>
-      <p class="text-danger pl-1">{{ errors }}</p>
+      <p class="text-danger pl-1" v-if="errors">{{ errors }}</p>
 
       <label><b>Password </b></label>
       <input class="form-control form-input" type="password" autocomplete="on"
@@ -40,5 +41,6 @@
       <div class="d-flex justify-content-end">
         <router-link to="/login">Have an account?</router-link>
       </div>
-  </form>
+    </form>
+  </div>
 </div>

@@ -4,7 +4,8 @@
 <script>
 import _ from 'lodash';
 import { mapState } from 'vuex';
-import { REGISTER } from '../../store/actions.type';
+import notify from 'devextreme/ui/notify';
+import { REGISTER } from '@/store/actions.type';
 
 export default {
   name: 'Register',
@@ -35,7 +36,17 @@ export default {
           email: this.email,
           password: this.password,
         })
-        .then(() => this.$router.push({ name: 'login' }));
+        .then(() => {
+          notify({
+            message: 'Register success',
+            width: 250,
+            position: {
+              my: 'right top',
+              at: 'right top',
+            },
+          }, 'success', 3000);
+          this.$router.push({ name: 'login' });
+        });
     },
 
     debounceInput: _.debounce(function validate() {

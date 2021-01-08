@@ -13,6 +13,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import ApiService from './services/api.service';
+import JwtService from './services/jwt.service';
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
@@ -22,7 +23,10 @@ library.add(fab, fas, far);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 ApiService.init();
-
+const token = JwtService.getToken();
+if (token) {
+  ApiService.setHeader();
+}
 new Vue({
   router,
   store,
